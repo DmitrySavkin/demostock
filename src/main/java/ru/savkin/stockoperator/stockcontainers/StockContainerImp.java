@@ -57,10 +57,10 @@ public class StockContainerImp extends StockContainer {
 
     //TODO REfactor
     protected void updateMinPair(Stock stock) {
-//        minPair = Map.entry(stock.getPrice(), stock);
-//        Map.Entry<BigDecimal, Stock> tmp = maxPair;
-//        maxPair = deque.higherEntry(tmp.getKey());
-//        deque.remove(tmp.getKey());
+        minPair = Map.entry(stock.getPrice(), stock);
+        Map.Entry<BigDecimal, Stock> tmp = maxPair;
+        maxPair = deque.higherEntry(tmp.getKey());
+        deque.remove(tmp.getKey());
     }
 
 

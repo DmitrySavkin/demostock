@@ -36,49 +36,49 @@ public class StockContainerImp extends StockContainer {
 
 
     public void addStock(Stock stock) {
-        if (minPair == null) {
-            minPair = maxPair = Map.entry(stock.getPrice(), stock);
-            deque.put(stock.getPrice(), stock);
-        } else {
-            if (deque.size() < limit) {
-                if (maxPair.getKey().compareTo(stock.getPrice()) < 0) {
-                    maxPair = Map.entry(stock.getPrice(), stock);
-                }
-                if (minPair.getKey().compareTo(stock.getPrice()) > 0) {
-                    minPair = Map.entry(stock.getPrice(), stock);
-                }
-                deque.put(stock.getPrice(), stock);
-
-            } else {
-                addOrderedStock(stock);
-            }
-        }
+//        if (minPair == null) {
+//            minPair = maxPair = Map.entry(stock.getPrice(), stock);
+//            deque.put(stock.getPrice(), stock);
+//        } else {
+//            if (deque.size() < limit) {
+//                if (maxPair.getKey().compareTo(stock.getPrice()) < 0) {
+//                    maxPair = Map.entry(stock.getPrice(), stock);
+//                }
+//                if (minPair.getKey().compareTo(stock.getPrice()) > 0) {
+//                    minPair = Map.entry(stock.getPrice(), stock);
+//                }
+//                deque.put(stock.getPrice(), stock);
+//
+//            } else {
+//                addOrderedStock(stock);
+//            }
+//        }
     }
 
     //TODO REfactor
     protected void updateMinPair(Stock stock) {
-        minPair = Map.entry(stock.getPrice(), stock);
-        Map.Entry<BigDecimal, Stock> tmp = maxPair;
-        maxPair = deque.higherEntry(tmp.getKey());
-        deque.remove(tmp.getKey());
+//        minPair = Map.entry(stock.getPrice(), stock);
+//        Map.Entry<BigDecimal, Stock> tmp = maxPair;
+//        maxPair = deque.higherEntry(tmp.getKey());
+//        deque.remove(tmp.getKey());
     }
 
 
     protected void addOrderedStock(Stock stock) {
-        if (maxPair.getKey().compareTo(stock.getPrice()) < 0) {
-            maxPair = Map.entry(stock.getPrice(), stock);
-            Map.Entry<BigDecimal, Stock> tmp = minPair;
-            minPair = deque.higherEntry(tmp.getKey());
-            deque.remove(tmp.getKey());
-        }
-        if (minPair.getKey().compareTo(stock.getPrice()) < 0
-                && stock.getPrice().compareTo(maxPair.getKey()) < 0
-        ) {
-            Map.Entry<BigDecimal, Stock> tmp = minPair;
-            deque.remove(tmp.getKey());
-            deque.put(stock.getPrice(), stock);
-            minPair = deque.firstEntry();
-        }
+//        if (maxPair.getKey().compareTo(stock.getPrice()) < 0) {
+//            maxPair = Map.entry(stock.getPrice(), stock);
+//            Map.Entry<BigDecimal, Stock> tmp = minPair;
+//            minPair = deque.higherEntry(tmp.getKey());
+//            deque.remove(tmp.getKey());
+//        }
+//        if (minPair.getKey().compareTo(stock.getPrice()) < 0
+//                && stock.getPrice().compareTo(maxPair.getKey()) < 0
+//        ) {
+//            Map.Entry<BigDecimal, Stock> tmp = minPair;
+//            deque.remove(tmp.getKey());
+//            deque.put(stock.getPrice(), stock);
+//            minPair = deque.firstEntry();
+//        }
     }
 
 
